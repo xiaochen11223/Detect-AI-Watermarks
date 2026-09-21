@@ -1,0 +1,43 @@
+---
+title: About Detect AI Watermarks
+description: About Detect AI Watermarks — a free, browser-first AI watermark detector and hidden Unicode character scanner.
+created_at: 2026-09-20
+---
+
+## About Detect AI Watermarks
+
+**Detect AI Watermarks** (`detectaiwatermarks.com`) is a free, browser-first AI watermark detector that scans your text for hidden Unicode characters and lets you clean and copy the result in a single click. It is built for writers, editors, students, teachers, developers, and anyone who ships text to readers, screens, or systems.
+
+## Why we built it
+
+In 2025, AI-generated text is everywhere — and so are the invisible Unicode characters it carries. Zero-width spaces, variation selectors, directional marks, and BOM characters leak from AI tools into CMS pipelines, database inserts, screen readers, and search indexes. They cause real, measurable damage: broken layouts, failed JSON inserts, screen-reader bugs, and homoglyph spoofing in phishing.
+
+We wanted a free, private, no-signup tool that would let anyone detect and remove these characters in seconds. No model inference, no API key, no "please log in with your Google account" gate — just paste, scan, clean, copy.
+
+## What we detect
+
+Our scanner covers 30+ invisible Unicode characters across the following categories:
+
+- **Zero-width characters** — `U+200B`, `U+200C`, `U+200D`, `U+2060`, `U+FEFF`
+- **Variation selectors** — `U+FE00` through `U+FE0F` (16 characters)
+- **Bidirectional control marks** — `U+200E`, `U+200F`, `U+202A`–`U+202E`, `U+2066`–`U+2069`
+- **Special & invisible spaces** — `U+00A0`, `U+202F`, `U+205F`, `U+2007`–`U+200A`
+- **Invisible operators** — `U+00AD`, `U+2061`–`U+2064`
+- **Line & paragraph separators** — `U+2028`, `U+2029`
+
+When suspicious characters are found, you can optionally trigger a server-side **AI-generated content review** for a 0–100 confidence score and a short reason. The review is optional, fails gracefully to a front-end-only result, and never stores your input.
+
+## Our values
+
+1. **Privacy first.** Your text is scanned locally in your browser. It is only forwarded to our server when you explicitly trigger the AI review, and even then it is never stored.
+2. **Free forever.** No credit card, no trial. Anonymous users get 5 checks per day; sign-up unlocks 50/day.
+3. **Browser-first.** The core scan runs in your browser — no waiting on a remote model, no rate-limited API call for the basic use case.
+4. **Open about limitations.** A negative result does not prove a text is human-written. A positive result does not prove a text is AI-generated. We tell you exactly what we found and let you decide what to do with it.
+
+## Who we are
+
+Detect AI Watermarks is operated by a small team focused on text provenance tooling. You can reach us at `support@detectaiwatermarks.com` or via the [contact page](/contact).
+
+## Get started
+
+Try the [detector on the home page](/#tool) — no signup required. Read more on the [blog](/blog) or browse the rest of this site via the footer.

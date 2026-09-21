@@ -1,0 +1,166 @@
+{
+  "header": {
+    "id": "header",
+    "brand": {
+      "title": "Detect AI Watermarks",
+      "logo": {
+        "src": "/logo.svg",
+        "alt": "Detect AI Watermarks",
+        "width": 48,
+        "height": 48
+      },
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "Home",
+          "url": "/",
+          "icon": "Home"
+        },
+        {
+          "title": "Blog",
+          "url": "/blog",
+          "icon": "Newspaper"
+        },
+        {
+          "title": "About",
+          "url": "/about",
+          "icon": "Info"
+        },
+        {
+          "title": "Contact",
+          "url": "/contact",
+          "icon": "Mail"
+        }
+      ]
+    },
+    "buttons": [],
+    "user_nav": {
+      "show_name": true,
+      "show_credits": false,
+      "show_sign_out": true,
+      "items": []
+    },
+    "show_sign": true,
+    "show_theme": true,
+    "show_locale": false,
+    "topbanner": {}
+  },
+  "footer": {
+    "id": "footer",
+    "brand": {
+      "title": "Detect AI Watermarks",
+      "description": "Free online AI watermark detector. Scan hidden Unicode characters, detect AI watermarks, and clean your text instantly. Private, browser-first, no credit card required.",
+      "logo": {
+        "src": "/logo.svg",
+        "alt": "Detect AI Watermarks",
+        "width": 48,
+        "height": 48
+      },
+      "url": "/"
+    },
+    "nav": {
+      "items": [
+        {
+          "title": "Tool",
+          "children": [
+            {
+              "title": "AI Watermark Detector",
+              "url": "/#tool",
+              "target": "_self"
+            },
+            {
+              "title": "What We Detect",
+              "url": "/#detect",
+              "target": "_self"
+            },
+            {
+              "title": "How It Works",
+              "url": "/#how-to",
+              "target": "_self"
+            },
+            {
+              "title": "FAQ",
+              "url": "/#faq",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "Resources",
+          "children": [
+            {
+              "title": "Blog",
+              "url": "/blog",
+              "target": "_self"
+            },
+            {
+              "title": "ChatGPT Watermark Detector",
+              "url": "/blog/chatgpt-watermark-detector",
+              "target": "_self"
+            },
+            {
+              "title": "Remove AI Watermark from Text",
+              "url": "/blog/remove-ai-watermark-from-text",
+              "target": "_self"
+            },
+            {
+              "title": "Unicode Characters",
+              "url": "/blog/unicode-characters",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "Company",
+          "children": [
+            {
+              "title": "About",
+              "url": "/about",
+              "target": "_self"
+            },
+            {
+              "title": "Contact",
+              "url": "/contact",
+              "target": "_self"
+            },
+            {
+              "title": "Disclaimer",
+              "url": "/disclaimer",
+              "target": "_self"
+            }
+          ]
+        }
+      ]
+    },
+    "social": {
+      "items": [
+        {
+          "title": "Email",
+          "icon": "Mail",
+          "url": "mailto:tnga86892@gmail.com",
+          "target": "_self"
+        }
+      ]
+    },
+    "agreement": {
+      "items": [
+        {
+          "title": "Privacy Policy",
+          "url": "/privacy-policy"
+        },
+        {
+          "title": "Terms of Service",
+          "url": "/terms-of-service"
+        },
+        {
+          "title": "DMCA",
+          "url": "/dmca"
+        }
+      ]
+    },
+    "show_theme": true,
+    "show_locale": false
+  }
+}

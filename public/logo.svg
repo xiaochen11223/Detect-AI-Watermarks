@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Detect AI Watermarks scan icon only -->
+  <rect width="48" height="48" rx="10" fill="#6366F1"/>
+  <path d="M14 18 L24 14 L34 18 L34 30 L24 34 L14 30 Z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>
+  <circle cx="24" cy="24" r="3.2" fill="#fff"/>
+  <path d="M19 24 L22 24 M26 24 L29 24" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

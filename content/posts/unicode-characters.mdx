@@ -1,0 +1,92 @@
+---
+title: Unicode Characters — A Field Guide to Hidden Characters in Text
+description: A reference for Unicode characters that hide in AI-generated text. Zero-width spaces, variation selectors, directional marks, BOM and more.
+created_at: 2026-09-20
+author_name: Detect AI Team
+author_image: /logo.svg
+image: /preview.svg
+---
+
+Most characters in text are visible — letters, digits, punctuation. But Unicode also defines a whole category of **hidden characters** that have zero visual width but very real effects on the systems that consume your text. This guide is a field reference for the most common hidden Unicode characters and explains how to detect and remove them.
+
+## Zero-Width Characters
+
+The zero-width family is the most common source of AI text watermarks.
+
+| Code point | Name | Effect |
+| --- | --- | --- |
+| `U+200B` | Zero-Width Space | Inserts an invisible word break. |
+| `U+200C` | Zero-Width Non-Joiner | Prevents ligature joining between adjacent glyphs. |
+| `U+200D` | Zero-Width Joiner | Requests joining of adjacent glyphs (used in emoji sequences). |
+| `U+2060` | Word Joiner | Zero-width no-break space; prevents line break. |
+| `U+FEFF` | Zero-Width No-Break Space (BOM) | Byte Order Mark; invisible at start of text but visible mid-string. |
+
+## Variation Selectors (U+FE00 – U+FE0F)
+
+Variation selectors are 16 invisible formatting characters that select a specific glyph variant of the preceding character. The two most visible in modern text are `U+FE0E` (text presentation selector) and `U+FE0F` (emoji presentation selector). They are a frequent source of AI-tool leaks because chatbots often emit them as part of emoji rendering.
+
+## Bidirectional Control Marks
+
+Unicode defines a set of invisible control characters that affect the order in which characters are displayed. They are essential for mixed-direction text (English + Arabic, for example) but heavily abused in phishing and spoofing attacks.
+
+| Code point | Name |
+| --- | --- |
+| `U+200E` | Left-to-Right Mark |
+| `U+200F` | Right-to-Left Mark |
+| `U+202A` | Left-to-Right Embedding |
+| `U+202B` | Right-to-Left Embedding |
+| `U+202C` | Pop Directional Formatting |
+| `U+202D` | Left-to-Right Override |
+| `U+202E` | Right-to-Left Override |
+| `U+2066` | Left-to-Right Isolate |
+| `U+2067` | Right-to-Left Isolate |
+| `U+2068` | First Strong Isolate |
+| `U+2069` | Pop Directional Isolate |
+
+The override characters `U+202D` and `U+202E` are particularly dangerous because they can flip the visual order of a URL, making `https://example.com` look like `https://moc.elpmaxe` to a human reader. Never publish text containing these characters without inspecting it first.
+
+## Special and Invisible Spaces
+
+These look like a regular space but have different widths or no-break behavior. They frequently leak from AI tools and break whitespace normalization in HTML and CMS parsers.
+
+| Code point | Name | Width |
+| --- | --- | --- |
+| `U+00A0` | No-Break Space | Same as a normal space, but prevents line wrapping. |
+| `U+202F` | Narrow No-Break Space | Half-width no-break space. |
+| `U+205F` | Medium Mathematical Space | Used in formulas. |
+| `U+2007` | Figure Space | Equal to a digit width. |
+| `U+2008` | Punctuation Space | Equal to width of a period or comma. |
+| `U+2009` | Thin Space | One-fifth em. |
+| `U+200A` | Hair Space | Thinnest space in Unicode. |
+
+## Invisible Operators
+
+These come from the math block and are used to disambiguate expressions like `2x` (implicit multiplication). They are invisible in normal text and frequently appear in AI-generated math output.
+
+- `U+00AD` — Soft Hyphen
+- `U+2061` — Function Application
+- `U+2062` — Invisible Times
+- `U+2063` — Invisible Separator
+- `U+2064` — Invisible Plus
+
+## Line and Paragraph Separators
+
+These two are particularly insidious. They look like a line break or paragraph break to a human reader, but they are NOT newlines (`\n` or `\r\n`). They break JSON parsers, SQL inserts, and most line-based text processing.
+
+- `U+2028` — Line Separator
+- `U+2029` — Paragraph Separator
+
+## How to detect and clean hidden characters
+
+The simplest and most private approach is to scan your text per Unicode code point. The algorithm is:
+
+1. Convert the string to an array of code points using `Array.from(text)` (this handles surrogate pairs correctly).
+2. For each code point, check whether it belongs to the hidden character set above.
+3. Collect matches with their position, code point, name, and category.
+4. Re-join the remaining (non-hidden) code points to produce the cleaned text.
+
+This is exactly what the [watermark detector on our home page](/#tool) does. It runs entirely in your browser — your text never leaves your device unless you trigger the optional server-side AI review, and even then it is never stored.
+
+## Conclusion
+
+Hidden Unicode characters are a fact of life in 2025 text workflows. Knowing what they are, where they come from, and how to detect them is the difference between a smooth publishing pipeline and a long Friday afternoon of debugging mysterious CMS errors. Run any suspicious text through the [free detector](/#tool), click Copy Clean Text, and ship safe content.

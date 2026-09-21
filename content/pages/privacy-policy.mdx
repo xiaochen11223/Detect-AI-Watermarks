@@ -1,0 +1,68 @@
+---
+title: Privacy Policy
+description: Privacy policy for Detect AI Watermarks. Your text is scanned locally; we never store your input.
+created_at: 2026-09-20
+---
+
+## Introduction
+
+Welcome to **Detect AI Watermarks** (`detectaiwatermarks.com`), a free online AI watermark detector that scans your text for hidden Unicode characters and lets you clean and copy the result. Your privacy is foundational to this product. This policy explains what we collect, what we never collect, and the limited scenarios in which your text is briefly sent to a server.
+
+## What we never collect
+
+By default, the AI watermark detector runs **entirely in your browser**. The text you paste is scanned locally using JavaScript. Under the default configuration:
+
+- Your text is **never sent** to our servers.
+- Your text is **never stored** in any database.
+- Your text is **never logged** in any application log.
+- We do not use third-party analytics that read the contents of your input.
+
+## When your text may be briefly transmitted
+
+If the front-end scanner finds hidden Unicode characters, you may optionally trigger an **AI-generated content review**. When that review runs, your text and the list of detected characters are sent to our server, forwarded to a third-party AI detection service for a one-time review, and the response is returned to your browser. The text is not persisted — it is held in memory only for the duration of the request and discarded as soon as the response is returned.
+
+You can disable the AI review entirely and rely only on the local front-end scan, which covers the vast majority of use cases.
+
+## Information we do collect
+
+To operate the service and prevent abuse, we collect the following:
+
+1. **Daily usage counts.** We store a per-day counter keyed by either your user ID (if signed in) or a hash of your IP address combined with a browser cookie. The counter stores only a number — never the text you submitted.
+2. **Account information.** If you sign up, we store your email address and a hashed password (managed by `better-auth`). We do not ask for or store your name, location, or any other personal data unless you explicitly provide it.
+3. **Standard server logs.** Our hosting provider (Vercel) and any analytics service we configure collect standard request metadata: IP address, user agent, request timestamp, and HTTP status. These logs do not contain the body of your text.
+
+## How long we keep data
+
+- Daily usage counters are aggregated per UTC date and retained indefinitely for analytics. They contain no personally identifiable text.
+- Account information is retained until you delete your account.
+- Server logs are retained according to our hosting provider's default policy.
+
+## Your rights
+
+You may:
+
+- Request a copy of the personal data we hold about you.
+- Request deletion of your account and associated data.
+- Opt out of analytics by enabling a "Do Not Track" header in your browser.
+- Use the watermark detector anonymously without creating an account.
+
+## Third-party services
+
+We may use the following third parties:
+
+- **Vercel** — hosting and edge delivery.
+- **Neon** — managed PostgreSQL for account and usage data (production only).
+- **Hive AI** — optional AI-generated content detection, called only when you trigger the review step and only when suspicious characters are found.
+- **Google Analytics** (if enabled) — aggregated traffic analytics.
+
+Each third party processes data according to its own privacy policy.
+
+## Changes to this policy
+
+We may update this policy from time to time. Material changes will be posted on this page with an updated effective date. Continued use of the service after a change constitutes acceptance of the updated policy.
+
+## Contact
+
+If you have questions about this privacy policy, contact us at `support@detectaiwatermarks.com`.
+
+By using Detect AI Watermarks, you consent to this privacy policy.

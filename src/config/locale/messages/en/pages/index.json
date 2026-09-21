@@ -1,0 +1,288 @@
+{
+  "page": {
+    "show_sections": [
+      "hero",
+      "tool",
+      "trust",
+      "scenarios",
+      "how-to",
+      "detect",
+      "faq",
+      "cta"
+    ],
+    "sections": {
+      "hero": {
+        "id": "hero",
+        "title": "Detect AI Watermarks in Seconds",
+        "highlight_text": "in Seconds",
+        "description": "Online text analysis tool — paste text, scan hidden Unicode characters, and clean AI watermarks instantly. Free. Private. No credit card.",
+        "tip": "Free ai watermark detector — 26+ invisible character types scanned locally in your browser.",
+        "buttons": [
+          {
+            "title": "Start Detecting Now",
+            "icon": "Zap",
+            "url": "/#tool",
+            "target": "_self",
+            "variant": "default"
+          },
+          {
+            "title": "Read the Guide",
+            "icon": "BookOpenText",
+            "url": "/blog/remove-ai-watermark-from-text",
+            "target": "_self",
+            "variant": "outline"
+          }
+        ]
+      },
+      "tool": {
+        "block": "watermark-detector",
+        "id": "tool",
+        "title": "AI Watermark Detector",
+        "description": "Paste text from ChatGPT, Claude, Gemini or any source. We scan 30+ invisible Unicode characters and clean your text instantly — no signup required.",
+        "placeholder": "Paste text from ChatGPT, Claude, Gemini or any other source. We will scan it for invisible Unicode characters and AI watermarks…",
+        "analyze_label": "Analyze",
+        "copy_label": "Copy Clean Text",
+        "clear_label": "Clear",
+        "max_chars": 20000,
+        "privacy_notice": "Your text is only sent for AI review if suspicious patterns are found. We never store your input.",
+        "found_heading": "Hidden characters detected",
+        "clean_heading": "No AI watermarks detected",
+        "ai_review_heading": "AI-generated content review"
+      },
+      "trust": {
+        "id": "trust",
+        "title": "Why Use Our AI Watermark Detector",
+        "description": "A free watermark checker built for writers, students, editors, and developers who need clean text.",
+        "items": [
+          {
+            "title": "Free Forever",
+            "description": "No credit card, no trial. Anonymous users get 5 free checks/day, sign up for 50/day.",
+            "icon": "Gift"
+          },
+          {
+            "title": "No Registration Required",
+            "description": "Use the watermark detector online instantly. Sign-up only unlocks more daily checks.",
+            "icon": "UserRound"
+          },
+          {
+            "title": "Browser-First Processing",
+            "description": "Hidden Unicode characters are scanned locally in your browser — fast, private, no waiting.",
+            "icon": "Globe"
+          },
+          {
+            "title": "AI-Powered Review",
+            "description": "When suspicious patterns appear, an optional server-side AI review gives a second opinion.",
+            "icon": "RiRobot2Line"
+          },
+          {
+            "title": "26+ Hidden Char Types",
+            "description": "Zero-width spaces, variation selectors, directional marks, BOM, special spaces and more.",
+            "icon": "ScanText"
+          },
+          {
+            "title": "One-Click Clean & Copy",
+            "description": "Remove invisible characters and copy safe text to clipboard in a single click.",
+            "icon": "ClipboardCopy"
+          }
+        ]
+      },
+      "scenarios": {
+        "block": "features-list",
+        "id": "scenarios",
+        "title": "Built for Every Text Workflow",
+        "label": "Use Cases",
+        "description": "An invisible watermark detector for anyone who ships text to readers, screens, or systems.",
+        "items": [
+          {
+            "title": "Publishing",
+            "description": "Strip hidden characters before publishing to avoid CMS errors and broken layouts.",
+            "icon": "Newspaper"
+          },
+          {
+            "title": "Education",
+            "description": "Check essays for academic integrity and invisible AI watermarks before submission.",
+            "icon": "GraduationCap"
+          },
+          {
+            "title": "Development",
+            "description": "Debug API responses, JSON payloads, and database inserts broken by invisible characters.",
+            "icon": "Code"
+          },
+          {
+            "title": "Content Quality",
+            "description": "Clean text copied from AI tools before it reaches screen readers and accessibility tools.",
+            "icon": "ShieldCheck"
+          }
+        ]
+      },
+      "how-to": {
+        "block": "features-step",
+        "id": "how-to",
+        "title": "How to Detect AI Watermarks",
+        "description": "Check for AI watermarks and clean your text in four simple steps:",
+        "text_align": "center",
+        "items": [
+          {
+            "title": "Copy Text",
+            "description": "Copy text from ChatGPT, Claude, Gemini, or any other source you suspect may carry a watermark."
+          },
+          {
+            "title": "Paste It",
+            "description": "Paste into the input box above. You can also upload a .txt file up to 20,000 characters."
+          },
+          {
+            "title": "Analyze",
+            "description": "Click Analyze. Our scanner checks 30+ invisible Unicode characters in milliseconds."
+          },
+          {
+            "title": "Review & Copy",
+            "description": "Inspect detected characters, read the optional AI review, and copy clean text to clipboard."
+          }
+        ],
+        "className": "bg-muted"
+      },
+      "detect": {
+        "id": "detect",
+        "title": "What We Detect",
+        "description": "30+ invisible Unicode characters commonly used as AI watermarks or that leak from AI tools. Each is shown with its code point, name, and category.",
+        "items": [
+          {
+            "title": "U+200B — Zero-Width Space",
+            "description": "Invisible space used to break words. Common ChatGPT watermark.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+200C / U+200D — Non-Joiner & Joiner",
+            "description": "Invisible characters controlling glyph joining, heavily used in emoji sequences.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+2060 — Word Joiner",
+            "description": "Zero-width no-break space; prevents line break without showing visible width.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+FE00 – U+FE0F — Variation Selectors",
+            "description": "16 invisible formatting characters that select glyph variants of preceding characters.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+200E / U+200F — LTR & RTL Marks",
+            "description": "Invisible directionality marks. Abused in phishing for visual spoofing.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+202A–U+202E — Directional Embedding",
+            "description": "Force LTR/RTL ordering. Heavily abused in URL spoofing and homoglyph attacks.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+2066–U+2069 — Directional Isolates",
+            "description": "Isolate following text into LTR/RTL direction. Modern replacement for embedding.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+00A0 — No-Break Space",
+            "description": "Looks like a regular space but prevents line wrapping. Breaks CMS parsers.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+202F — Narrow No-Break Space",
+            "description": "Half-width no-break space. Often leaks from AI tools and French typography.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+205F — Medium Mathematical Space",
+            "description": "Invisible math spacing used in formulas; rarely needed in prose.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+2007–U+200A — Figure/Punct/Thin/Hair Spaces",
+            "description": "Specialized invisible spaces that break HTML whitespace normalization.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+00AD — Soft Hyphen",
+            "description": "Invisible hyphen made visible only when wrapping breaks the word.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+2061–U+2064 — Invisible Operators",
+            "description": "Function application, invisible times, separator, and plus from math expressions.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+2028 / U+2029 — Line & Paragraph Separators",
+            "description": "Break characters that are NOT newlines. Break JSON and SQL inserts.",
+            "icon": "EyeOff"
+          },
+          {
+            "title": "U+FEFF — Zero-Width No-Break Space (BOM)",
+            "description": "Byte Order Mark; invisible at start of text but visible mid-string.",
+            "icon": "EyeOff"
+          }
+        ]
+      },
+      "faq": {
+        "id": "faq",
+        "title": "Frequently Asked Questions",
+        "description": "Everything you need to know about detecting AI watermarks and hidden Unicode characters.",
+        "items": [
+          {
+            "question": "What is an AI watermark?",
+            "answer": "An AI watermark is an invisible or hard-to-spot pattern embedded in text generated by models like ChatGPT, Claude, or Gemini. It often uses hidden Unicode characters such as zero-width spaces (U+200B) or variation selectors (U+FE00–U+FE0F) that look empty but uniquely identify the source. Our AI watermark detector scans for these characters and lets you clean them from your text."
+          },
+          {
+            "question": "How does this AI watermark detector work?",
+            "answer": "The watermark checker scans your text locally in the browser for 30+ invisible Unicode characters including zero-width spaces, directional marks, BOM, and variation selectors. When suspicious characters are found, an optional server-side AI review offers a second opinion with a 0–100 confidence score and a short reason. The scanner never stores your input."
+          },
+          {
+            "question": "Can the ChatGPT watermark detector find ChatGPT watermarks specifically?",
+            "answer": "Yes. The detector covers the exact Unicode characters most commonly reported as ChatGPT watermarks, including U+200B (zero-width space), U+200C (non-joiner), U+200D (joiner), and U+2060 (word joiner). If you want a deeper walkthrough, read our ChatGPT watermark detector guide on the blog."
+          },
+          {
+            "question": "How do I remove AI watermarks from text?",
+            "answer": "Paste your text into the input box and click Analyze. When hidden characters are found, click 'Copy Clean Text' to instantly copy the cleaned version with all invisible watermarks removed. For a step-by-step walkthrough, see our guide on how to remove AI watermarks from text."
+          },
+          {
+            "question": "Is this AI watermark detector free?",
+            "answer": "Yes. The ai watermark detector free plan gives you 5 anonymous checks per day without signup. Sign up for free to unlock 50 checks per day and prepare for future Pro features like batch file processing and API access."
+          },
+          {
+            "question": "Is my text stored or sent anywhere?",
+            "answer": "No. Your text is scanned locally in your browser. It is only forwarded to the optional server-side AI review when suspicious patterns are found, and even then it is never persisted. By default the front-end scan already covers most needs."
+          },
+          {
+            "question": "What is a zero-width space and why does it matter?",
+            "answer": "A zero-width space (U+200B) is an invisible Unicode character that breaks words without rendering a visible gap. It can break CMS parsing, database inserts, screen readers, and search indexing. Use our zero width space remover to strip them automatically."
+          },
+          {
+            "question": "Can professors detect AI watermarks in student essays?",
+            "answer": "Academic integrity workflows increasingly use hidden Unicode characters as one signal of AI-assisted writing. Professors can run a submission through this invisible watermark detector to spot zero-width characters that would not appear in normal typed text."
+          }
+        ]
+      },
+      "cta": {
+        "id": "cta",
+        "title": "Start Detecting AI Watermarks Now",
+        "description": "Free. Private. No credit card. Scan text and clean AI watermarks in seconds.",
+        "buttons": [
+          {
+            "title": "Try the Detector",
+            "url": "/#tool",
+            "target": "_self",
+            "icon": "Zap"
+          },
+          {
+            "title": "Read the Blog",
+            "url": "/blog",
+            "target": "_self",
+            "variant": "outline",
+            "icon": "BookOpenText"
+          }
+        ],
+        "className": "bg-muted"
+      }
+    }
+  }
+}

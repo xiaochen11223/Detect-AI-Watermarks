@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "id": "header",
     "brand": {
@@ -42,7 +42,7 @@
       "show_sign_out": true,
       "items": []
     },
-    "show_sign": true,
+    "show_sign": false,
     "show_theme": true,
     "show_locale": false,
     "topbanner": {}

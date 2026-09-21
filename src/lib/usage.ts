@@ -123,7 +123,6 @@ export async function incrementUsage(ctx: UsageContext): Promise<void> {
     ipHash: ctx.ipHash,
     date: ctx.date,
     count: 1,
-    createdAt: new Date(),
   });
 }
 

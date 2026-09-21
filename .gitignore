@@ -63,3 +63,5 @@ src/config/db/migrations*
 .source
 
 .chats
+.vercel
+.env*

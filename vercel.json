@@ -1,6 +1,6 @@
 {
-  "buildCommand": "pnpm build",
-  "installCommand": "pnpm install --no-frozen-lockfile",
+  "buildCommand": "next build --webpack",
+  "installCommand": "npm ci",
   "framework": "nextjs",
   "build": {
     "env": {

@@ -112,6 +112,22 @@ export function Footer({ footer }: { footer: FooterType }) {
             </div>
           ) : null}
         </div>
+
+        <div className="flex min-w-0 flex-wrap items-center justify-center gap-4 pt-2">
+          <a
+            href="https://launchboosts.com/project/detect-ai-watermarks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://launchboosts.com/badges/featured-dark.svg"
+              alt="Featured on LaunchBoosts"
+              width={180}
+              height={54}
+              loading="lazy"
+            />
+          </a>
+        </div>
       </div>
     </footer>
   );

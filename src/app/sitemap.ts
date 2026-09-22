@@ -9,9 +9,10 @@ import { getLocalPostsAndCategories } from '@/shared/models/post';
  * Lists:
  *  - Home page `/`
  *  - All blog posts under `/blog/<slug>` (sourced from `content/posts/*.mdx`)
- *  - The 6 legal / company static pages
+ *  - About and Contact static pages
  *
- * Excludes: settings, admin, activity, api, sign-in/up, oauth callback.
+ * Excludes: settings, admin, activity, api, sign-in/up, oauth callback,
+ * and noindex legal pages (privacy-policy, terms-of-service, disclaimer, dmca).
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const appUrl = envConfigs.app_url.replace(/\/$/, '');
@@ -29,30 +30,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.8,
-    },
-    {
-      url: `${appUrl}/privacy-policy`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${appUrl}/terms-of-service`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${appUrl}/dmca`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${appUrl}/disclaimer`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
     },
     {
       url: `${appUrl}/about`,

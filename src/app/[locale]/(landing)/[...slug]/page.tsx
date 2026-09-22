@@ -7,6 +7,15 @@ import { getLocalPage } from '@/shared/models/post';
 
 export const revalidate = 3600;
 
+// Legal/compliance pages that should not be indexed by search engines.
+// They must stay crawlable (follow) so Google can read the noindex signal.
+const NOINDEX_SLUGS = new Set([
+  'privacy-policy',
+  'terms-of-service',
+  'disclaimer',
+  'dmca',
+]);
+
 // dynamic page metadata
 export async function generateMetadata({
   params,
@@ -26,6 +35,11 @@ export async function generateMetadata({
   // static page slug
   const staticPageSlug =
     typeof slug === 'string' ? slug : (slug as string[]).join('/') || '';
+
+  // noindex for legal/compliance pages (keep follow so Googlebot reads it)
+  const robotsMeta = NOINDEX_SLUGS.has(staticPageSlug)
+    ? { index: false, follow: true }
+    : { index: true, follow: true };
 
   // filter invalid slug (files with extensions or dev server paths like @vite/client)
   if (staticPageSlug.includes('.') || staticPageSlug.startsWith('@')) {
@@ -49,6 +63,7 @@ export async function generateMetadata({
     return {
       title,
       description,
+      robots: robotsMeta,
       alternates: {
         canonical: canonicalUrl,
       },
@@ -73,6 +88,7 @@ export async function generateMetadata({
     return {
       title,
       description,
+      robots: robotsMeta,
       alternates: {
         canonical: canonicalUrl,
       },
@@ -88,6 +104,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    robots: robotsMeta,
     alternates: {
       canonical: canonicalUrl,
     },

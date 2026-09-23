@@ -140,6 +140,18 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://aitoolboxer.com/projects/detect-ai-watermarks?utm_source=badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://aitoolboxer.com/aitoolboxer/images/badges/featured-on-light.svg"
+              alt="Featured on AI Tool Boxer"
+              style={{ height: "44px", width: "auto" }}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

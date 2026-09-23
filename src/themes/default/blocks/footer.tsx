@@ -127,6 +127,19 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://vibedonalds.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://vibedonalds.com/badge/featured-on-vibedonalds.svg"
+              alt="Featured on Vibedonalds"
+              width={240}
+              height={60}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

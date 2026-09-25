@@ -152,6 +152,21 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://confettisaas.com/saas/detectaiwatermarks-com?ref=badge"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Detect AI Watermarks on ConfettiSaaS"
+          >
+            <img
+              src="https://confettisaas.com/badge-light.svg"
+              width={250}
+              height={54}
+              alt="Detect AI Watermarks on ConfettiSaaS"
+              loading="lazy"
+              style={{ display: "block" }}
+            />
+          </a>
         </div>
       </div>
     </footer>

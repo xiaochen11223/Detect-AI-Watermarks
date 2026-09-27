@@ -167,6 +167,19 @@ export function Footer({ footer }: { footer: FooterType }) {
               style={{ display: "block" }}
             />
           </a>
+          <a
+            href="https://toolhunter.ai/ai-tool/watermark-ai-detector?ref=badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://toolhunter.ai/badge/watermark-ai-detector.svg?theme=light"
+              alt="Featured on Toolhunter"
+              width={200}
+              height={50}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

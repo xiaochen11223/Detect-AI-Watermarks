@@ -180,6 +180,19 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://kittylaunch.com/p/watermark-ai-detector?utm_source=badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://kittylaunch.com/api/public/badges/launch_badge.svg?style=pill&theme=light"
+              width={296}
+              alt="Watermark AI Detector — Verified by KittyLaunch"
+              data-kittylaunch-badge="1"
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

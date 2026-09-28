@@ -207,6 +207,19 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://indiestore.co/product/detect-ai-watermarks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://indiestore.co/api/badge?theme=light"
+              alt="Featured on IndieStore"
+              width={220}
+              height={54}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

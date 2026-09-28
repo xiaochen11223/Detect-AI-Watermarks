@@ -193,6 +193,20 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://www.aiwizard.ai/detect-ai-watermarks"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Detect AI Watermarks on aiwizard"
+          >
+            <img
+              src="https://www.aiwizard.ai/badges/featured-on-aiwizard-dark.svg"
+              alt="Detect AI Watermarks featured on aiwizard, the AI tools directory"
+              width={250}
+              height={54}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

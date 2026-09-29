@@ -233,6 +233,19 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://mifar.net/?utm_source=badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://mifar.net/brand/mifar/badge-light.svg"
+              alt="Featured on MiFar"
+              width={172}
+              height={40}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

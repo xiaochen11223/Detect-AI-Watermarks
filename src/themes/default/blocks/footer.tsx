@@ -220,6 +220,19 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://tools.launchllama.co/products/detect-ai-watermarks?utm_source=badge&utm_medium=referral"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://tools.launchllama.co/featured-badge.png?v=2"
+              alt="Featured on Launch Llama Tools"
+              width={200}
+              height={52}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

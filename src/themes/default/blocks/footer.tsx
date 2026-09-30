@@ -246,6 +246,19 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://aiboom.tools"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://aiboom.tools/badge/badge_light.svg"
+              alt="Featured on AIBoom.Tools"
+              width={140}
+              height={36}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

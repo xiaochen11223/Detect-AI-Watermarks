@@ -45,6 +45,28 @@ export interface ScanHit {
   position: number;
 }
 
+export interface ScanOptions {
+  /**
+   * Which hidden-character categories to detect & clean.
+   * Defaults to all categories. A user can deselect a category to keep those
+   * characters in the output (e.g. legitimate NBSP usage).
+   */
+  enabledTypes?: HiddenCharType[];
+}
+
+export interface SpacingAnomaly {
+  /** Kind of spacing pattern. */
+  kind: 'consecutive-spaces' | 'consecutive-tabs' | 'mixed-space-run';
+  /** Human-readable label. */
+  label: string;
+  /** How many such occurrences were found. */
+  count: number;
+  /** Where the first occurrence starts (code-point index). */
+  position: number;
+  /** Short description for the report. */
+  description: string;
+}
+
 export interface ScanResult {
   /** All detected hidden characters, in document order. */
   hits: ScanHit[];
@@ -56,6 +78,11 @@ export interface ScanResult {
   hitByType: Partial<Record<HiddenCharType, number>>;
   /** Aggregated count per code point (hexCode -> count). */
   hitByChar: Record<string, number>;
+  /**
+   * Spacing / whitespace patterns that can indicate a mathematical watermark
+   * (e.g. repeated normal spaces, tab irregularities). Not removed automatically.
+   */
+  spacingAnomalies: SpacingAnomaly[];
 }
 
 const CATEGORY_NAMES: Record<HiddenCharType, string> = {
@@ -359,13 +386,95 @@ export function getHiddenCharDef(codePoint: number): HiddenCharDef | null {
   return HIDDEN_BY_CP.get(codePoint) ?? null;
 }
 
+/** All category ids, in display order. */
+export const ALL_CATEGORIES: HiddenCharType[] = [
+  'zero-width',
+  'special-space',
+  'variation-selector',
+  'directional-mark',
+  'invisible-joiner',
+  'separator',
+  'bom',
+];
+
+/** Analyze whitespace runs for suspicious spacing patterns. */
+function analyzeSpacing(text: string): SpacingAnomaly[] {
+  const anomalies: SpacingAnomaly[] = [];
+  const codePoints = Array.from(text);
+  const isSpace = (cp: number) => cp === 0x20;
+  const isTab = (cp: number) => cp === 0x09;
+
+  let spaceRun = 0;
+  let spaceRunStart = -1;
+  let tabRun = 0;
+  let tabRunStart = -1;
+  let consecutiveSpaceRuns = 0;
+  let consecutiveTabRuns = 0;
+  let firstSpacePos = -1;
+  let firstTabPos = -1;
+
+  for (let i = 0; i < codePoints.length; i++) {
+    const cp = codePoints[i].codePointAt(0)!;
+
+    // Consecutive normal spaces (2+ in a row) — often a math-watermark carrier.
+    if (isSpace(cp)) {
+      if (spaceRun === 0) spaceRunStart = i;
+      spaceRun++;
+      if (spaceRun === 2) {
+        consecutiveSpaceRuns++;
+        if (firstSpacePos === -1) firstSpacePos = spaceRunStart;
+      }
+    } else {
+      spaceRun = 0;
+    }
+
+    // Consecutive tabs (2+ in a row).
+    if (isTab(cp)) {
+      if (tabRun === 0) tabRunStart = i;
+      tabRun++;
+      if (tabRun === 2) {
+        consecutiveTabRuns++;
+        if (firstTabPos === -1) firstTabPos = tabRunStart;
+      }
+    } else {
+      tabRun = 0;
+    }
+  }
+
+  if (consecutiveSpaceRuns > 0) {
+    anomalies.push({
+      kind: 'consecutive-spaces',
+      label: 'Repeated normal spaces',
+      count: consecutiveSpaceRuns,
+      position: firstSpacePos,
+      description: `${consecutiveSpaceRuns} occurrence(s) of 2+ spaces in a row. This can be intentional formatting, but repeated space patterns are a common carrier for mathematical text watermarks.`,
+    });
+  }
+  if (consecutiveTabRuns > 0) {
+    anomalies.push({
+      kind: 'consecutive-tabs',
+      label: 'Repeated tab characters',
+      count: consecutiveTabRuns,
+      position: firstTabPos,
+      description: `${consecutiveTabRuns} occurrence(s) of 2+ tabs in a row. Irregular tab sequences can carry hidden spacing codes.`,
+    });
+  }
+
+  return anomalies;
+}
+
 /**
  * Scan text for hidden Unicode characters.
  *
  * Iterates per code point using `Array.from(text)` so surrogate pairs and
  * astral-plane characters are handled correctly (Rules R-0203).
+ *
+ * @param text    The text to scan.
+ * @param options Optional category filtering and behavior tweaks.
  */
-export function scanText(text: string): ScanResult {
+export function scanText(text: string, options?: ScanOptions): ScanResult {
+  const enabled = new Set<HiddenCharType>(options?.enabledTypes ?? ALL_CATEGORIES);
+
   const hits: ScanHit[] = [];
   const hitByType: Partial<Record<HiddenCharType, number>> = {};
   const hitByChar: Record<string, number> = {};
@@ -375,7 +484,7 @@ export function scanText(text: string): ScanResult {
   for (let i = 0; i < codePoints.length; i++) {
     const cp = codePoints[i].codePointAt(0)!;
     const def = HIDDEN_BY_CP.get(cp);
-    if (def) {
+    if (def && enabled.has(def.type)) {
       hits.push({
         codePoint: def.codePoint,
         hexCode: def.hexCode,
@@ -398,6 +507,7 @@ export function scanText(text: string): ScanResult {
     hitCount: hits.length,
     hitByType,
     hitByChar,
+    spacingAnomalies: analyzeSpacing(text),
   };
 }
 

@@ -49,6 +49,12 @@
         "clean_heading": "No AI watermarks detected",
         "ai_review_heading": "AI-generated content review"
       },
+      "image-metadata": {
+        "block": "image-metadata-remover",
+        "id": "image-metadata",
+        "title": "Image Metadata Remover",
+        "description": "Strip EXIF, GPS, XMP and IPTC metadata from your images in one click. Processed locally in your browser — your photos never leave this page."
+      },
       "trust": {
         "id": "trust",
         "title": "Why Use Our AI Watermark Detector",

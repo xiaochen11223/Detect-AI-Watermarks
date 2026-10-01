@@ -27,3 +27,4 @@ export * from './blog-detail';
 export * from './page-detail';
 
 export * from './watermark-detector';
+export * from './image-metadata-remover';

@@ -3,7 +3,6 @@
     "show_sections": [
       "hero",
       "tool",
-      "image-metadata",
       "trust",
       "scenarios",
       "how-to",
@@ -36,19 +35,10 @@
         ]
       },
       "tool": {
-        "block": "watermark-detector",
+        "block": "tools-switcher",
         "id": "tool",
         "title": "AI Watermark Detector",
-        "description": "Paste text from ChatGPT, Claude, Gemini or any source. We scan 30+ invisible Unicode characters and clean your text instantly — no signup required.",
-        "placeholder": "Paste text from ChatGPT, Claude, Gemini or any other source. We will scan it for invisible Unicode characters and AI watermarks…",
-        "analyze_label": "Analyze",
-        "copy_label": "Copy Clean Text",
-        "clear_label": "Clear",
-        "max_chars": 20000,
-        "privacy_notice": "Your text is only sent for AI review if suspicious patterns are found. We never store your input.",
-        "found_heading": "Hidden characters detected",
-        "clean_heading": "No AI watermarks detected",
-        "ai_review_heading": "AI-generated content review"
+        "description": "Choose Text or Image. Scan hidden Unicode watermarks in text, or strip EXIF/GPS metadata from images — all in your browser, no signup."
       },
       "image-metadata": {
         "block": "image-metadata-remover",

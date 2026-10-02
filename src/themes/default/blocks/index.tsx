@@ -28,3 +28,4 @@ export * from './page-detail';
 
 export * from './watermark-detector';
 export * from './image-metadata-remover';
+export * from './tools-switcher';

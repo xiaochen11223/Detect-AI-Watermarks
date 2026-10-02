@@ -271,6 +271,14 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://aitop10.tools/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary text-xs"
+          >
+            AiTop10 Tools
+          </a>
         </div>
       </div>
     </footer>

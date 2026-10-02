@@ -3,6 +3,7 @@
     "show_sections": [
       "hero",
       "tool",
+      "image-metadata",
       "trust",
       "scenarios",
       "how-to",

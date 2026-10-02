@@ -259,6 +259,18 @@ export function Footer({ footer }: { footer: FooterType }) {
               loading="lazy"
             />
           </a>
+          <a
+            href="https://aihuntlist.com/tool/detect-ai-watermarks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://aihuntlist.com/badge-light.svg"
+              alt="Featured on aihuntlist.com"
+              style={{ height: "54px", width: "auto" }}
+              loading="lazy"
+            />
+          </a>
         </div>
       </div>
     </footer>

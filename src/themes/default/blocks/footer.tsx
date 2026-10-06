@@ -285,6 +285,19 @@ export function Footer({ footer }: { footer: FooterType }) {
             />
           </a>
           <a
+            href="https://startuptrusted.com?ref=detectaiwatermarks.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://startuptrusted.com/api/badge?type=featured&style=light"
+              alt="Detect AI Watermarks on StartupTrusted"
+              width={240}
+              height={54}
+              loading="lazy"
+            />
+          </a>
+          <a
             href="https://aitop10.tools/"
             target="_blank"
             rel="noopener noreferrer"

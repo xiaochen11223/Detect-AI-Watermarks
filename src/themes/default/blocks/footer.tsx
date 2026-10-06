@@ -298,6 +298,19 @@ export function Footer({ footer }: { footer: FooterType }) {
             />
           </a>
           <a
+            href="https://tooldirs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://tooldirs.com/badge/badge_dark.svg"
+              alt="Featured on ToolDirs"
+              width={200}
+              height={54}
+              loading="lazy"
+            />
+          </a>
+          <a
             href="https://aitop10.tools/"
             target="_blank"
             rel="noopener noreferrer"

@@ -272,6 +272,19 @@ export function Footer({ footer }: { footer: FooterType }) {
             />
           </a>
           <a
+            href="https://indexof.ai/tool/detect-ai-watermarks?ref=detect-ai-watermarks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://indexof.ai/badge-light.svg"
+              alt="Featured on IndexOf.AI"
+              width={200}
+              height={40}
+              loading="lazy"
+            />
+          </a>
+          <a
             href="https://aitop10.tools/"
             target="_blank"
             rel="noopener noreferrer"
